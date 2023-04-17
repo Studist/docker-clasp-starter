@@ -87,7 +87,7 @@ Typescript を使う場合は、以下のような `./src/code.ts` を作成し�
 
 ### Push したい場合
 
-Git リポジトリを Push すると GitHubActions で `clasp push` が行われますが、コンテナ内から直接 `clas push` を実行することもできます。
+Git リポジトリを Push すると GitHubActions で `clasp push` が行われますが、コンテナ内から直接 `clasp push` を実行することもできます。
 ただし、 `package.json` が `project_name` フォルダに存在しない場合エラーになるので、これも Clone と同様に `npm run push project_name` を実行してください。
 どこのディレクトリにいても `project_name` のプロジェクトを明示的に Push できます。
 
