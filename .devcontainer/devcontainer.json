@@ -1,0 +1,18 @@
+{
+    "name": "Docker Clasp Starter",
+    "build": {
+        "dockerfile": "Dockerfile",
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"ms-azuretools.vscode-docker",
+				"rvest.vs-code-prettier-eslint",
+				"foxundermoon.shell-format"
+			]
+        }
+    },
+    "remoteUser": "node"
+}

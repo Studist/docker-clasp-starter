@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "module": "ESNext",
+        "strict": true,
+        "importHelpers": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "removeComments": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {},
+        "lib": [
+            "esnext"
+        ]
+    },
+    "include": [
+        "**/*.ts",
+        "**/src/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

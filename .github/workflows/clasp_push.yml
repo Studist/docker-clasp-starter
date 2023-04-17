@@ -1,0 +1,43 @@
+name: Push to Google Apps Script
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  push_to_gas:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
+
+    - name: Install dependencies
+      run: |
+        npm install -g @google/clasp
+
+    - name: Authorize Clasp
+      env:
+        CLASP_TOKEN: ${{ secrets.CLASP_TOKEN }}
+      run: echo $CLASP_TOKEN > ~/.clasprc.json
+
+    - name: Clasp push
+      run: |
+        for project_path in $(find . -type f -name ".clasp.json" -exec dirname {} \;); do
+          echo "Pushing to Google Apps Script from: ${project_path}"
+          cd ${project_path}
+          if grep -q '{Script ID}' .clasp.json; then
+            echo "Skip: ${project_path}"
+            continue
+          fi
+          npm init -y
+          clasp push
+          cd -
+        done
