@@ -1,6 +1,8 @@
 ARG VARIANT="16-bullseye"
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:${VARIANT}
 
+COPY scripts/message.sh /usr/local/etc/
+
 RUN apt-get update
 
 ARG NODE_MODULES="npm typescript @google/clasp"

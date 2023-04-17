@@ -6,13 +6,15 @@
     "customizations": {
         "vscode": {
             "extensions": [
-				"dbaeumer.vscode-eslint",
-				"esbenp.prettier-vscode",
-				"ms-azuretools.vscode-docker",
-				"rvest.vs-code-prettier-eslint",
-				"foxundermoon.shell-format"
-			]
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "ms-azuretools.vscode-docker",
+                "rvest.vs-code-prettier-eslint",
+                "foxundermoon.shell-format"
+            ]
         }
     },
-    "remoteUser": "node"
+    "remoteUser": "node",
+    "postCreateCommand": "bash -i -c 'npm install'",
+    "postStartCommand": "bash /usr/local/etc/message.sh"
 }

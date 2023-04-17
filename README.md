@@ -43,11 +43,7 @@ code .
 
 Cmd + Shift + P でコマンドパレットを開き、`Remote-Containers: Reopen in Container`を選択します。
 
-コンテナが開いたら、`npm install`を実行します。
-
-```bash
-npm install
-```
+コンテナが開いたら、 `postCreateCommand` によって自動で `npm install` されます。
 
 ## コンテナ内で clasp をセットアップする
 
