@@ -37,6 +37,8 @@ if [ $COMMAND = "create" ]; then
     mv $SCRIPT_DIR/$PROJECT_NAME/appsscript.json $SCRIPT_DIR/$PROJECT_NAME/src/appsscript.json
     # .clasp.jsonのrootDirを`./src`に変更する($SCRIPT_DIR/$PROJECT_NAME => ./src)
     sed -i -e "s|$SCRIPT_DIR\/$PROJECT_NAME|\.\/src|g" $SCRIPT_DIR/$PROJECT_NAME/.clasp.json
+    # tsconfig.json.sampleを$PROJECT_NAME/tsconfig.jsonにコピーする
+    cp $SCRIPT_DIR/tsconfig.json.sample $SCRIPT_DIR/$PROJECT_NAME/tsconfig.json
     exit 0
 fi
 
@@ -44,11 +46,17 @@ fi
 
 if [ $COMMAND = "push" ]; then
     cd $PROJECT_NAME
+    # tsconfig.jsonが無ければ../tsconfig.json.sampleをコピーしてくる
+    if [ ! -e tsconfig.json ]; then
+        cp ../tsconfig.json.sample tsconfig.json
+    fi
+    # clasp push のエラー回避の為に、空のpackage.jsonを作成する
     touch package.json
     echo "{}" >package.json
     ## timezoneが日本以外の場合は日本にする
     sed -i -e "s/America\/New_York/Asia\/Tokyo/g" $SCRIPT_DIR/$PROJECT_NAME/src/appsscript.json
     clasp push -f
+    # package.jsonを削除する
     rm package.json
     cd $SCRIPT_DIR
     exit 0
