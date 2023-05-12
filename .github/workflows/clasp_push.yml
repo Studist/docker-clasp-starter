@@ -30,14 +30,4 @@ jobs:
 
     - name: Clasp push
       run: |
-        for project_path in $(find . -type f -name ".clasp.json" -exec dirname {} \;); do
-          echo "Pushing to Google Apps Script from: ${project_path}"
-          cd ${project_path}
-          if grep -q '{Script ID}' .clasp.json; then
-            echo "Skip: ${project_path}"
-            continue
-          fi
-          npm init -y
-          clasp push
-          cd -
-        done
+        clasp push -f

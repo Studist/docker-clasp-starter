@@ -3,6 +3,10 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "alwaysStrict": true,
+        "types": [
+            "google-apps-script",
+            "google-apps-script-oauth2"
+        ],
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "lib": [
@@ -22,8 +26,6 @@
         "strictNullChecks": true,
         "strictPropertyInitialization": true,
         "stripInternal": true,
-        "suppressExcessPropertyErrors": true,
-        "suppressImplicitAnyIndexErrors": true,
         "target": "es2019",
         "importHelpers": true
     },

@@ -9,8 +9,7 @@
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
                 "ms-azuretools.vscode-docker",
-                "rvest.vs-code-prettier-eslint",
-                "foxundermoon.shell-format"
+                "rvest.vs-code-prettier-eslint"
             ]
         }
     },
